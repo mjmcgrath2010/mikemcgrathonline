@@ -14,6 +14,7 @@ const  GlobalStyle  =  createGlobalStyle`
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  margin: 0;
 }
 
 /* Sections
@@ -25,6 +26,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 /**
@@ -42,7 +44,10 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,div{
+ margin: 0;
 }
 
 /* Grouping content
