@@ -14,7 +14,11 @@ const Logo = styled(HeroLogo)`
 	
 	#first {}
 	
+	#first-m {}
+	
 	#last {}
+	
+	#last-m {}
 	
 	#left-carret {}
 	
