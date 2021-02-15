@@ -19,9 +19,8 @@ const HeroContentContainer = styled.div`
  left: 0;
  width: 100vw;
  height: 100vh;
- padding: ${({theme}) => theme.spacing.lg};
  background: #1110104a;
-}`
+`
 
 const HeroSection = ({backgroundColor, children, image}) => {
  return (
