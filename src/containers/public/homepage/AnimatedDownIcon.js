@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 import PropTypes from "prop-types"
+
 import { ReactComponent as DownIcon } from "../../../assets/images/down-arrow.svg"
 
 const pulse = keyframes`
@@ -43,6 +44,7 @@ const Icon = styled(DownIcon)`
   bottom: ${({ theme }) => theme.spacing.xl};
   left: calc(50% - 40px);
   animation: ${pulse} 1.5s 3.5s ease infinite;
+
   #circle {
     opacity: 0;
     transform: translateY(100%);
@@ -56,6 +58,7 @@ const Icon = styled(DownIcon)`
     animation: ${arrowAnimation} 0.5s 2.5s linear forwards;
   }
 `
+
 const AnimatedDownIcon = ({ onClick, className }) => (
   <Icon className={className} onClick={onClick} />
 )
