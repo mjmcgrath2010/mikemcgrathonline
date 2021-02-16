@@ -7,13 +7,13 @@ const BaseCss = css`
   color: ${({ theme }) => theme.colors.black_300};
   font-weight: ${({ theme }) => theme.fontWeight[500]};
 `
-const paragraph = css`
+const p = css`
   ${BaseCss};
   font-size: ${({ theme }) => theme.fontSize.m};
 `
 
 const span = css`
-  ${paragraph}
+  ${p}
 `
 
 const HeadingBaseCss = `
@@ -49,7 +49,7 @@ const h6 = css`
 `
 
 const VARIANTS = {
-  paragraph,
+  p,
   span,
   h1,
   h2,
@@ -65,27 +65,18 @@ const StyledTypography = styled.p`
 `
 
 const Typography = ({ children, className, variant }) => (
-  <StyledTypography className={className} variant={variant}>
+  <StyledTypography as={variant} className={className} variant={variant}>
     {children}
   </StyledTypography>
 )
 
 Typography.defaultProps = {
   className: "",
-  variant: "paragraph",
+  variant: "p",
 }
 
 Typography.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf([
-    "paragraph",
-    "span",
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-  ]),
+  variant: PropTypes.oneOf(["p", "span", "h1", "h2", "h3", "h4", "h5", "h6"]),
 }
