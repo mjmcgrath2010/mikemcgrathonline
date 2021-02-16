@@ -42,5 +42,12 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "prettier": {
+    "trailingComma": "all",
+    "semi": false
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
 }

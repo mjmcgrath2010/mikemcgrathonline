@@ -7314,11 +7314,6 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mmcgrath-prettier-config@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mmcgrath-prettier-config/-/mmcgrath-prettier-config-1.0.0.tgz#42778ae94a252d676305f7ae487a03d22e721071"
-  integrity sha512-ytbWPX1/7qq+1x2pmyz2ylUFUAGM5zYwmBJA+MkIhBRfTCbnVVBJP4UPS3OAzqBsr0sd4fsXCkwd3b+X7pRbxw==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"

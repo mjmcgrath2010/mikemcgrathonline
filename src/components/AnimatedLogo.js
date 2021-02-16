@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import React from "react"
+import styled, { keyframes } from "styled-components"
 
-import { ReactComponent as HeroLogo } from '../assets/images/hero-logo.svg'
+import { ReactComponent as HeroLogo } from "../assets/images/hero-logo.svg"
 
 const firstM = keyframes`
 	from {
@@ -54,36 +54,35 @@ const fadeInName = keyframes`
 `
 
 const Logo = styled(HeroLogo)`
-	height: 125px;
-	width: auto;
-	display: block;
-	margin: 15% auto 0;
+  height: 125px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 
-	
-	#first-m {
-		animation: ${firstM} 2s forwards linear;
-	}
-	
-	#title,
-	#first,
-	#last {
-		opacity: 0;
-		visibility: hidden;
-		animation: ${fadeInName} 1s 2s forwards linear;
-	}
-	
-	#last-m {
-		animation: ${lastM} 2s forwards linear;
-	}
-	
-	#left-carret {
-		animation: ${leftCarret} 2s forwards linear;
-	}
-	
-	#slash,
-	#right-carret {
-	 animation: ${right} 2s forwards linear;
-	}
+  #first-m {
+    animation: ${firstM} 2s forwards linear;
+  }
+
+  #title,
+  #first,
+  #last {
+    opacity: 0;
+    visibility: hidden;
+    animation: ${fadeInName} 1s 2s forwards linear;
+  }
+
+  #last-m {
+    animation: ${lastM} 2s forwards linear;
+  }
+
+  #left-carret {
+    animation: ${leftCarret} 2s forwards linear;
+  }
+
+  #slash,
+  #right-carret {
+    animation: ${right} 2s forwards linear;
+  }
 `
 
 const AnimatedLogo = () => <Logo />
