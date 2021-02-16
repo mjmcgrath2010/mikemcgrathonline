@@ -19,6 +19,6 @@ const Nav = styled.nav`
   }) => ` 0 ${m}`};
 `
 
-const NavBar = (props) => <Nav>NavBar</Nav>
+const NavBar = ({ transparent }) => <Nav transparent={transparent}>NavBar</Nav>
 
 export default NavBar
