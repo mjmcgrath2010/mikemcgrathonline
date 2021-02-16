@@ -6,6 +6,7 @@ import backgroundImage from "../../../assets/images/hero-background.png"
 import AnimatedLogo from "../../../components/AnimatedLogo"
 import AnimatedDownIcon from "./AnimatedDownIcon"
 import Typography from "../../../components/Typography"
+import PublicCommonLayout from "../../../layouts/public/Common"
 
 const Container = styled.div`
   width: 100%;
@@ -17,12 +18,14 @@ const Container = styled.div`
 
 const HomePage = () => {
   return (
-    <HeroSection image={backgroundImage}>
-      <Container>
-        <AnimatedLogo />
-        <AnimatedDownIcon />
-      </Container>
-    </HeroSection>
+    <PublicCommonLayout>
+      <HeroSection image={backgroundImage}>
+        <Container>
+          <AnimatedLogo />
+          <AnimatedDownIcon />
+        </Container>
+      </HeroSection>
+    </PublicCommonLayout>
   )
 }
 
