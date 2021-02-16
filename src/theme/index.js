@@ -7,7 +7,7 @@ const theme = {
   breakpoints,
   colors,
   spacing,
-  typography,
+  ...typography,
 }
 
 export default theme

@@ -6,9 +6,10 @@ const fontFamilies = {
 const fontSizes = {
   xs: "13px",
   s: "14px",
-  m: "16px",
-  l: "18px",
-  xl: "24px",
+  m: "18px",
+  l: "36px",
+  xl: "40px",
+  xxl: "48px",
 }
 
 const fontWeights = {
@@ -21,9 +22,9 @@ const fontWeights = {
 }
 
 const typography = {
-  ...fontFamilies,
-  ...fontSizes,
-  ...fontWeights,
+  fontFamilies,
+  fontSizes,
+  fontWeights,
 }
 
 export default typography

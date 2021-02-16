@@ -5,6 +5,7 @@ import HeroSection from "../../../components/HeroSection"
 import backgroundImage from "../../../assets/images/hero-background.png"
 import AnimatedLogo from "../../../components/AnimatedLogo"
 import AnimatedDownIcon from "./AnimatedDownIcon"
+import Typography from "../../../components/Typography"
 
 const Container = styled.div`
   width: 100%;
