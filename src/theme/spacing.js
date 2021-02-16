@@ -4,6 +4,7 @@ const spacing = {
   sm: "8px",
   m: "16px",
   lg: "24px",
+  xl: "48px",
 }
 
 export default spacing
