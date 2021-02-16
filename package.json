@@ -42,6 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080",
-  "prettier": "mmcgrath-prettier-config"
+  "proxy": "http://localhost:8080"
 }
