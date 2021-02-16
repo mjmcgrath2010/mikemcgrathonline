@@ -83,6 +83,11 @@ const Logo = styled(HeroLogo)`
   #right-carret {
     animation: ${right} 2s forwards linear;
   }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    height: 70px;
+    width: auto;
+  }
 `
 
 const AnimatedLogo = () => <Logo />
