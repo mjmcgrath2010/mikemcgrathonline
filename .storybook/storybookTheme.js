@@ -18,7 +18,7 @@ export default create({
 	appBorderRadius: 4,
 
 	// Typography
-	fontBase: '"Open Sans", sans-serif',
+	fontBase: theme.fontFamilies.sans_100,
 	fontCode: 'monospace',
 
 	// Text colors
