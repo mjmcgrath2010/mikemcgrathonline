@@ -16,5 +16,6 @@ const Template = (args) => <Typography {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-	variant: 'p'
+	variant: 'p',
+	children: 'Hello World!'
 };

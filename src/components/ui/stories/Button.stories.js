@@ -15,5 +15,6 @@ const Template = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
+	children: 'Click Me',
 	variant: 'primary',
 };
