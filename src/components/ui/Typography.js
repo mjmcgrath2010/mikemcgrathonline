@@ -79,8 +79,17 @@ Typography.defaultProps = {
 }
 
 Typography.propTypes = {
+  /**
+   Optional - used to override existing styles
+   */
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  /**
+   Text to be rendered
+   */
+  children: PropTypes.string.isRequired,
+  /**
+   DOM element to be rendered, options:
+   */
   variant: PropTypes.oneOf(["p", "span", "h1", "h2", "h3", "h4", "h5", "h6"]),
 }
 
