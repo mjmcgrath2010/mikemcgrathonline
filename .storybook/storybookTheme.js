@@ -8,8 +8,8 @@ import brandImage from "../src/assets/images/logo-colored.png"
 export default create({
   base: "light",
 
-  colorPrimary: theme.colors.blue_300,
-  colorSecondary: theme.colors.purple_300,
+  colorPrimary: theme.colors.primary,
+  colorSecondary: theme.colors.secondary,
 
   // UI
   appBg: theme.colors.white_100,
@@ -28,7 +28,7 @@ export default create({
   // Toolbar default and active colors
   barTextColor: theme.colors.white_200,
   barSelectedColor: theme.colors.white_100,
-  barBg: theme.colors.purple_300,
+  barBg: theme.colors.primary,
 
   // Form colors
   inputBg: "white",
