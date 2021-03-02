@@ -51,22 +51,43 @@ const StyledButton = styled.button`
   ${({ variant }) => VARIANTS[variant]};
 `
 
-const Button = ({ children, onClick, fontSize, variant }) => (
-  <StyledButton onClick={onClick} fontSize={fontSize} variant={variant}>
+const Button = ({ children, className, onClick, fontSize, variant }) => (
+  <StyledButton
+    className={className}
+    onClick={onClick}
+    fontSize={fontSize}
+    variant={variant}
+  >
     {children}
   </StyledButton>
 )
 
 Button.defaultProps = {
-  onClick: () => {},
+  className: "",
   fontSize: "s",
   variant: "primary",
 }
 
 Button.propTypes = {
+  /**
+   Text or element to be rendered
+   */
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
+  /**
+   Optional - used to override an existing styles
+   */
+  className: PropTypes.string,
+  /**
+   onClick handler
+   */
+  onClick: PropTypes.func.isRequired,
+  /**
+   Determines the buttons font size, options:
+   */
   fontSize: PropTypes.oneOf(["s", "m", "l"]),
+  /**
+   Specifies which style will be applied, options:
+   */
   variant: PropTypes.oneOf([
     "primary",
     "secondary",
