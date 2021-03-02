@@ -7,26 +7,20 @@ const Container = styled.div`
   margin-right: ${({ theme }) => theme.spacing.m};
   padding-left: ${({ theme }) => theme.spacing.m};
   padding-right: ${({ theme }) => theme.spacing.m};
-`
-
-const Row = styled.div`
   display: grid;
-  grid-template-columns: ${({ desktopColumns }) =>
-    `repeat(${desktopColumns}, 1fr);`};
-  grid-template-rows: ${({ desktopRows }) =>
-    desktopRows ? `repeat(${desktopRows}, 1fr);` : "auto"} 
-  grid-gap: ${({ theme }) => theme.spacing.m};
-	
-	${({ theme }) => theme.breakpoints.tablet} {
-		
-	}
+  grid-template-columns: ${({ cols }) => `repeat(${cols}, 1fr);`};
+  grid-template-rows: ${({ rows }) =>
+    rows ? `repeat(${rows}, 1fr);` : "auto"};
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+  }
 
   ${({ theme }) => theme.breakpoints.mobile} {
-	  
   }
 `
+
 const Item = styled.div`
-  display: grid;
+  display: inherit;
   grid-column: ${({ cols }) => `span ${cols}`};
   ${({ theme }) => theme.breakpoints.tablet} {
     grid-column: ${({ tabletCols }) => `span ${tabletCols}`};
@@ -37,9 +31,30 @@ const Item = styled.div`
   }
 `
 
-const Grid = ({ children }) => <Container>{children}</Container>
+const Grid = ({ children, cols, rows }) => (
+  <Container cols={cols} rows={rows}>
+    {children}
+  </Container>
+)
 
-Grid.Row = Row
 Grid.Item = Item
+
+Item.defaultProps = {
+  cols: 1,
+  mobileCols: 1,
+  tabletCols: 1,
+  rows: undefined,
+}
+
+Grid.defaultProps = {
+  cols: 12,
+  rows: undefined,
+}
+
+Grid.propTypes = {
+  children: PropTypes.node.isRequired,
+  cols: PropTypes.number,
+  rows: PropTypes.number,
+}
 
 export default Grid
