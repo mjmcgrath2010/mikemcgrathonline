@@ -5,13 +5,23 @@ import styled, { css } from "styled-components"
 const baseStyles = css`
   padding: ${({
     theme: {
-      spacing: { s, m },
+      spacing: { sm, m },
     },
-  }) => `${s} ${m}`};
+  }) => `${sm} ${m}`};
+  color: ${({ theme }) => theme.colors.white_100};
+  border-radius: 4px;
+  border: none;
+  min-width: 88px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 `
 
 const primary = css`
   ${baseStyles};
+  background: ${({ theme }) => theme.colors.purple_300};
 `
 
 const secondary = css`
