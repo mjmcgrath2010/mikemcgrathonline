@@ -39,11 +39,18 @@ const Grid = ({ children, cols, rows }) => (
 
 Grid.Item = Item
 
-Item.defaultProps = {
+Grid.Item.defaultProps = {
   cols: 1,
-  mobileCols: 1,
-  tabletCols: 1,
+  mobileCols: "inherit",
+  tabletCols: "inherit",
   rows: undefined,
+}
+
+Grid.Item.propTypes = {
+  cols: PropTypes.number,
+  mobileCols: PropTypes.number,
+  tabletCols: PropTypes.number,
+  rows: PropTypes.number,
 }
 
 Grid.defaultProps = {
