@@ -37,3 +37,39 @@ Secondary.args = {
   children: "Secondary Button",
   variant: "secondary",
 }
+
+export const Success = Template.bind({})
+
+Success.storyName = "Success Button"
+
+Success.args = {
+  children: "Success Button",
+  variant: "success",
+}
+
+export const Info = Template.bind({})
+
+Info.storyName = "Info Button"
+
+Info.args = {
+  children: "Info Button",
+  variant: "info",
+}
+
+export const Warning = Template.bind({})
+
+Warning.storyName = "Warning Button"
+
+Warning.args = {
+  children: "Warning Button",
+  variant: "warning",
+}
+
+export const Error = Template.bind({})
+
+Error.storyName = "Error Button"
+
+Error.args = {
+  children: "Error Button",
+  variant: "error",
+}

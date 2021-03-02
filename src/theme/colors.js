@@ -57,12 +57,18 @@ const white = {
 const yellow = {
   yellow_100: "#f8f834",
   yellow_200: "#eaea06",
-  yellow_300: "#cece05",
+  yellow_300: "#d0d013",
   yellow_400: "#a3a305",
   yellow_500: "#808004",
 }
 
 const colors = {
+  primary: purple.purple_300,
+  secondary: blue.blue_300,
+  warning: yellow.yellow_300,
+  error: red.red_300,
+  success: green.green_300,
+  info: blue.blue_300,
   ...black,
   ...blue,
   ...green,
