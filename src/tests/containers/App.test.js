@@ -1,6 +1,4 @@
-import { render, screen } from '@testing-library/react';
-import App from '../../containers/App';
+import { render, screen } from "@testing-library/react"
+import App from "../../containers/App"
 
-test('renders learn react link', () => {
-
-});
+test("renders learn react link", () => {})

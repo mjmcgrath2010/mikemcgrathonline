@@ -1,11 +1,7 @@
-import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import HomePage from './public/homepage'
+import HomePage from "./public/homepage"
 
 function App() {
   return (
@@ -16,7 +12,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

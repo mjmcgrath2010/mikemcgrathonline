@@ -1,39 +1,46 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled, {css} from "styled-components"
+import styled, { css } from "styled-components"
 
 const baseStyles = css`
-	padding: ${({theme: {spacing: {s, m}}}) => `${s} ${m}`};
+  padding: ${({
+    theme: {
+      spacing: { s, m },
+    },
+  }) => `${s} ${m}`};
 `
 
 const primary = css`
-	${baseStyles};
+  ${baseStyles};
 `
 
 const secondary = css`
- ${baseStyles};
+  ${baseStyles};
 `
 
 const VARIANTS = {
-	primary,
-	secondary
+  primary,
+  secondary,
 }
 
 const StyledButton = styled.button`
-	${({variant}) => VARIANTS[variant] || VARIANTS.primary}
+  ${({ variant }) => VARIANTS[variant] || VARIANTS.primary}
 `
 
-const Button = ({children, onClick, variant}) => <StyledButton onClick={onClick} variant={variant}>{children}</StyledButton>
-
+const Button = ({ children, onClick, variant }) => (
+  <StyledButton onClick={onClick} variant={variant}>
+    {children}
+  </StyledButton>
+)
 
 Button.defaultProps = {
-	onClick: () => {},
-	variant: 'primary'
+  onClick: () => {},
+  variant: "primary",
 }
 
 Button.propTypes = {
-	children: PropTypes.node.isRequired,
-	onClick: PropTypes.func,
-	variant: PropTypes.oneOf(['primary', 'secondary'])
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  variant: PropTypes.oneOf(["primary", "secondary"]),
 }
 export default Button

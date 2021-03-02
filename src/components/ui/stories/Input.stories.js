@@ -1,18 +1,16 @@
+import React from "react"
 
-import React from 'react';
-
-import Input from '../Input'
+import Input from "../Input"
 
 export default {
-	title: 'Input',
-	component: Input,
-};
+  title: "Input",
+  component: Input,
+}
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <Input {...args} />;
+const Template = (args) => <Input {...args} />
 
 //👇 Each story then reuses that template
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {
-};
+Default.args = {}

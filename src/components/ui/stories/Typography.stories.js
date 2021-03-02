@@ -1,21 +1,19 @@
+import React from "react"
 
-import React from 'react';
-
-import Typography from '../Typography'
-
+import Typography from "../Typography"
 
 export default {
-	title: 'Typography',
-	component: Typography,
-};
+  title: "Typography",
+  component: Typography,
+}
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <Typography {...args} />;
+const Template = (args) => <Typography {...args} />
 
 //👇 Each story then reuses that template
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
-	variant: 'p',
-	children: 'Hello World!'
-};
+  variant: "p",
+  children: "Hello World!",
+}

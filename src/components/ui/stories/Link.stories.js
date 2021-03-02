@@ -1,18 +1,16 @@
+import React from "react"
 
-import React from 'react';
-
-import Link from '../Link'
+import Link from "../Link"
 
 export default {
-	title: 'Link',
-	component: Link,
-};
+  title: "Link",
+  component: Link,
+}
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <Link {...args} />;
+const Template = (args) => <Link {...args} />
 
 //👇 Each story then reuses that template
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {
-};
+Default.args = {}

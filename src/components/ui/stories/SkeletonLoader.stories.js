@@ -1,18 +1,16 @@
+import React from "react"
 
-import React from 'react';
-
-import SkeletonLoader from '../SkeletonLoader'
+import SkeletonLoader from "../SkeletonLoader"
 
 export default {
-	title: 'SkeletonLoader',
-	component: SkeletonLoader,
-};
+  title: "SkeletonLoader",
+  component: SkeletonLoader,
+}
 
 //👇 We create a “template” of how args map to rendering
-const Template = (args) => <SkeletonLoader {...args} />;
+const Template = (args) => <SkeletonLoader {...args} />
 
 //👇 Each story then reuses that template
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {
-};
+Default.args = {}
