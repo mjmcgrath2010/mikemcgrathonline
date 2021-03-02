@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
-import { ReactComponent as HeroLogo } from "../assets/images/hero-logo.svg"
+import { ReactComponent as HeroLogo } from "../../../assets/images/hero-logo.svg"
 
 const firstM = keyframes`
 	from {
@@ -84,7 +84,7 @@ const Logo = styled(HeroLogo)`
     animation: ${right} 2s forwards linear;
   }
 
-  ${({ theme }) => theme.breakpoints.tablet} {
+  ${({ theme }) => theme.breakpoints.mobile} {
     height: 70px;
     width: auto;
   }
