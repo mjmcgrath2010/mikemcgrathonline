@@ -5,6 +5,14 @@ import Typography from "../Typography"
 export default {
   title: "Typography",
   component: Typography,
+  argTypes: {
+    children: {
+      control: "text",
+    },
+    className: {
+      control: false,
+    },
+  },
 }
 
 //👇 We create a “template” of how args map to rendering
