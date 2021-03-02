@@ -5,15 +5,35 @@ import Button from "../Button"
 export default {
   title: "Button",
   component: Button,
+  args: {
+    onClick: () => alert("Click"),
+  },
+  argTypes: {
+    children: { control: "text" },
+    className: { control: false },
+    onClick: { control: false },
+    variant: {
+      control: false,
+    },
+  },
 }
 
-//👇 We create a “template” of how args map to rendering
 const Template = (args) => <Button {...args} />
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({})
 
+Primary.storyName = "Primary Button"
+
 Primary.args = {
-  children: "Click Me",
+  children: "Primary Button",
   variant: "primary",
+}
+
+export const Secondary = Template.bind({})
+
+Secondary.storyName = "Secondary Button"
+
+Secondary.args = {
+  children: "Secondary Button",
+  variant: "secondary",
 }
