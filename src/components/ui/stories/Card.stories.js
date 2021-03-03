@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
 import Card from "../Card"
 import Grid from "../Grid"
@@ -13,15 +14,16 @@ export default {
   },
 }
 
+const StyledGrid = styled(Grid)``
 //👇 We create a “template” of how args map to rendering
 const Template = (args) => (
-  <Grid cols={3}>
+  <StyledGrid cols={3}>
     <Grid.Item />
     <Grid.Item>
       <Card {...args} />
     </Grid.Item>
     <Grid.Item />
-  </Grid>
+  </StyledGrid>
 )
 
 //👇 Each story then reuses that template

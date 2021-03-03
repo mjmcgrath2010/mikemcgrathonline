@@ -31,8 +31,8 @@ const Item = styled.div`
   }
 `
 
-const Grid = ({ children, cols, rows }) => (
-  <Container cols={cols} rows={rows}>
+const Grid = ({ children, className, cols, rows }) => (
+  <Container className={className} cols={cols} rows={rows}>
     {children}
   </Container>
 )
@@ -54,12 +54,14 @@ Grid.Item.propTypes = {
 }
 
 Grid.defaultProps = {
+  className: "",
   cols: 12,
   rows: undefined,
 }
 
 Grid.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   cols: PropTypes.number,
   rows: PropTypes.number,
 }
