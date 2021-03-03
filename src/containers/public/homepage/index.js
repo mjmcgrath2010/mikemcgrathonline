@@ -31,12 +31,12 @@ const HomePage = () => {
         </Container>
       </HeroSection>
       <Grid>
-        <Grid.Row>
-          <Grid.Item cols={4}>
-            <Typography>Hello</Typography>
+        <Grid.Row rows={4}>
+          <Grid.Item cols={4} mobileCols={12}>
+            <Typography variant="h2">About Me</Typography>
           </Grid.Item>
-          <Grid.Item cols={8}>
-            <Typography>Hello</Typography>
+          <Grid.Item cols={8} mobileCols={12}>
+            <Typography variant="h4">My Name is Mike</Typography>
           </Grid.Item>
         </Grid.Row>
       </Grid>

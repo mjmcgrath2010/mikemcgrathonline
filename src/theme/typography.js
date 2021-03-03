@@ -4,12 +4,12 @@ const fontFamilies = {
 }
 
 const fontSizes = {
-  xs: "13px",
+  xs: "10px",
   s: "14px",
-  m: "18px",
-  l: "36px",
-  xl: "40px",
-  xxl: "48px",
+  m: "16px",
+  l: "24px",
+  xl: "32px",
+  xxl: "36px",
 }
 
 const fontWeights = {
