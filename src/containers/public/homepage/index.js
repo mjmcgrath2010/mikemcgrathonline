@@ -6,6 +6,8 @@ import backgroundImage from "../../../assets/images/hero-background.png"
 import AnimatedLogo from "./AnimatedLogo"
 import AnimatedDownIcon from "./AnimatedDownIcon"
 import PublicCommonLayout from "../../../layouts/public/Common"
+import Grid from "../../../components/ui/Grid"
+import Typography from "../../../components/ui/Typography"
 
 const Container = styled.div`
   width: 100%;
@@ -28,6 +30,16 @@ const HomePage = () => {
           <AnimatedDownIcon />
         </Container>
       </HeroSection>
+      <Grid>
+        <Grid.Row>
+          <Grid.Item cols={4}>
+            <Typography>Hello</Typography>
+          </Grid.Item>
+          <Grid.Item cols={8}>
+            <Typography>Hello</Typography>
+          </Grid.Item>
+        </Grid.Row>
+      </Grid>
     </PublicCommonLayout>
   )
 }
