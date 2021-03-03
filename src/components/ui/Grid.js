@@ -7,10 +7,7 @@ const Container = styled.div`
   margin-right: ${({ theme }) => theme.spacing.m};
   padding-left: ${({ theme }) => theme.spacing.m};
   padding-right: ${({ theme }) => theme.spacing.m};
-  display: grid;
   grid-template-columns: ${({ cols }) => `repeat(${cols}, 1fr);`};
-  grid-template-rows: ${({ rows }) =>
-    rows ? `repeat(${rows}, 1fr);` : "auto"};
 
   ${({ theme }) => theme.breakpoints.tablet} {
   }
@@ -18,7 +15,12 @@ const Container = styled.div`
   ${({ theme }) => theme.breakpoints.mobile} {
   }
 `
-
+const Row = styled.div`
+  grid-template-rows: ${({ rows }) => `repeat(${rows}, 84px);`};
+  display: grid;
+  grid-gap: ${({ theme }) => theme.spacing.sm};
+  grid-template-columns: inherit;
+`
 const Item = styled.div`
   display: inherit;
   grid-column: ${({ cols }) => `span ${cols}`};
@@ -31,13 +33,14 @@ const Item = styled.div`
   }
 `
 
-const Grid = ({ children, className, cols, rows }) => (
-  <Container className={className} cols={cols} rows={rows}>
+const Grid = ({ children, className, cols }) => (
+  <Container className={className} cols={cols}>
     {children}
   </Container>
 )
 
 Grid.Item = Item
+Grid.Row = Row
 
 Grid.Item.defaultProps = {
   cols: 1,

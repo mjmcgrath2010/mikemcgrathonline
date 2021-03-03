@@ -10,7 +10,15 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const Template = (args) => (
   <Grid {...args}>
-    <Grid.Item>Hello</Grid.Item>
+    <Grid.Row rows={3}>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+      <Grid.Item>Hello</Grid.Item>
+    </Grid.Row>
   </Grid>
 )
 
