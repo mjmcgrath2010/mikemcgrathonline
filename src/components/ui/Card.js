@@ -7,19 +7,36 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  padding: ${({
-    theme: {
-      spacing: { m },
-    },
-  }) => m};
+  display: block;
+  position: relative;
 `
-const Card = ({ children }) => <Container>{children}</Container>
+
+const ContentContainer = styled.div`
+  width: ${({ theme }) =>
+    `calc(100% - ${theme.spacing.m} - ${theme.spacing.m})`};
+  height: ${({ theme }) =>
+    `calc(100% - ${theme.spacing.m} - ${theme.spacing.m})`};
+  padding: ${({ theme }) => theme.spacing.m};
+`
+const Card = ({ children, className }) => (
+  <Container className={className}>
+    <ContentContainer>{children}</ContentContainer>
+  </Container>
+)
+
+Card.defaultProps = {
+  className: "",
+}
 
 Card.propTypes = {
   /**
    * Children to be rendered
    */
   children: PropTypes.node.isRequired,
+  /**
+   * Optional - can be used to extend base styles
+   */
+  className: PropTypes.string,
 }
 
 export default Card

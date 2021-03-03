@@ -15,14 +15,20 @@ export default {
 }
 
 const StyledGrid = styled(Grid)``
+
+const StyledCard = styled(Card)`
+  border: 1px solid #000000;
+`
 //👇 We create a “template” of how args map to rendering
 const Template = (args) => (
   <StyledGrid cols={3}>
-    <Grid.Item />
-    <Grid.Item>
-      <Card {...args} />
-    </Grid.Item>
-    <Grid.Item />
+    <Grid.Row rows={5}>
+      <Grid.Item />
+      <Grid.Item>
+        <Card {...args} />
+      </Grid.Item>
+      <Grid.Item />
+    </Grid.Row>
   </StyledGrid>
 )
 

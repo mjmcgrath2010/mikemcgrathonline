@@ -14,6 +14,7 @@ const Row = styled.div`
   display: grid;
   grid-gap: ${({ theme }) => theme.spacing.sm};
   grid-template-columns: inherit;
+  grid-auto-rows: 84px;
 
   ${({ theme }) => theme.breakpoints.tablet} {
   }
@@ -59,14 +60,12 @@ Grid.Item.propTypes = {
 Grid.defaultProps = {
   className: "",
   cols: 12,
-  rows: undefined,
 }
 
 Grid.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   cols: PropTypes.number,
-  rows: PropTypes.number,
 }
 
 export default Grid
