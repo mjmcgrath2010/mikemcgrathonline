@@ -24,6 +24,7 @@ const EditorStyle = createGlobalStyle`
 
   .toolbar-class {
     border: 1px solid #ccc;
+    font-family: ${({theme}) => theme.fontFamilies.sans_100};
   }
 `
 const TextEditor = () => {
