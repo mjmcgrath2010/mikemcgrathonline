@@ -8,18 +8,18 @@ const Container = styled.div`
   padding-left: ${({ theme }) => theme.spacing.m};
   padding-right: ${({ theme }) => theme.spacing.m};
   grid-template-columns: ${({ cols }) => `repeat(${cols}, 1fr);`};
-
-  ${({ theme }) => theme.breakpoints.tablet} {
-  }
-
-  ${({ theme }) => theme.breakpoints.mobile} {
-  }
 `
 const Row = styled.div`
   grid-template-rows: ${({ rows }) => `repeat(${rows}, 84px);`};
   display: grid;
   grid-gap: ${({ theme }) => theme.spacing.sm};
   grid-template-columns: inherit;
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+  }
+
+  ${({ theme }) => theme.breakpoints.mobile} {
+  }
 `
 const Item = styled.div`
   display: inherit;
