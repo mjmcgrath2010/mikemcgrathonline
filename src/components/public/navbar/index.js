@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import NavLink from "./NavLink"
 
 const Nav = styled.nav`
   position: fixed;
@@ -19,6 +20,10 @@ const Nav = styled.nav`
   }) => ` 0 ${m}`};
 `
 
-const NavBar = ({ transparent }) => <Nav transparent={transparent}>NavBar</Nav>
+const NavBar = ({ transparent }) => (
+  <Nav transparent={transparent}>
+    <NavLink path="/">Home</NavLink>
+  </Nav>
+)
 
 export default NavBar
