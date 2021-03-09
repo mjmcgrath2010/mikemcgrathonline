@@ -25,8 +25,10 @@ const User = new Schema({
 
 User.plugin(passportLocalMongoose)
 
-User.pre("save", function () {})
-
-User.methods = {}
+User.methods = {
+  identifier() {
+    return this._id
+  },
+}
 
 module.exports = model("user", User)

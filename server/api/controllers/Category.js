@@ -17,7 +17,16 @@ exports.getAll = (req, res, next) =>
     .then((docs) => res.json(docs))
     .catch((e) => next(e))
 
-exports.create = (req, res, next) => {}
+exports.create = (req, res, next) => {
+  const { title, description } = req.body
+
+  const category = new Category({ title, description })
+
+  category
+    .save()
+    .then((doc) => res.json(doc))
+    .catch((e) => next(e))
+}
 
 exports.update = (req, res, next) => {}
 
