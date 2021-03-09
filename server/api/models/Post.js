@@ -1,6 +1,25 @@
 const { Schema, model } = require("mongoose")
 
 const Post = new Schema({
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  categories: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "category",
+      required: true,
+    },
+  ],
+  tags: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "tag",
+      required: true,
+    },
+  ],
   title: {
     type: String,
     required: true,
@@ -9,7 +28,7 @@ const Post = new Schema({
     type: String,
     required: true,
   },
-  rawContent: {
+  json: {
     type: String,
   },
   html: {

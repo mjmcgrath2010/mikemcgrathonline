@@ -12,8 +12,16 @@ const Project = new Schema({
   featuredImage: {
     type: String,
   },
-  images: {
-    type: Array,
+  images: [
+    {
+      type: String,
+    },
+  ],
+  json: {
+    type: String,
+  },
+  html: {
+    type: String,
   },
 })
 
