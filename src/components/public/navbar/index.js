@@ -7,9 +7,9 @@ const Nav = styled.nav`
   position: fixed;
   height: 55px;
   width: 100%;
+  z-index: 1000;
   display: flex;
   flex-flow: row wrap;
-  z-index: 1000;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background: ${({ theme, transparent }) =>
     transparent ? "transparent" : theme.colors.white_100};
@@ -20,14 +20,34 @@ const Nav = styled.nav`
   }) => ` 0 ${m}`};
 `
 
+const LeftContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+`
+
+const RightContainer = styled.div`
+  justify-content: flex-end;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+`
+
 const NavBar = ({ transparent }) => (
   <Nav transparent={transparent}>
-    <NavLink path="/" isExact>
-      Home
-    </NavLink>
-    <NavLink path="/about">About Me</NavLink>
-    <NavLink path="/projects">Projects</NavLink>
-    <NavLink path="/blog">Blog</NavLink>
+    <LeftContainer>
+      <NavLink path="/" isExact>
+        Home
+      </NavLink>
+      <NavLink path="/about">About</NavLink>
+      <NavLink path="/projects">Featured Projects</NavLink>
+      <NavLink path="/work-experience">Experience</NavLink>
+      <NavLink path="/contact">Contact</NavLink>
+    </LeftContainer>
+    <RightContainer>
+      <NavLink path="/portfolio">Portfolio</NavLink>
+      <NavLink path="/blog">Blog</NavLink>
+    </RightContainer>
   </Nav>
 )
 

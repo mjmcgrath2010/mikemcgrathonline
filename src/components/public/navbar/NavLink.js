@@ -7,7 +7,6 @@ import { transparentize } from "polished"
 const StyledLink = styled(Link)`
   text-decoration: none;
   line-height: 55px;
-  min-width: 60px;
   text-align: center;
   padding: 0 ${({ theme }) => theme.spacing.m};
   margin: 0;
