@@ -22,7 +22,12 @@ const Nav = styled.nav`
 
 const NavBar = ({ transparent }) => (
   <Nav transparent={transparent}>
-    <NavLink path="/">Home</NavLink>
+    <NavLink path="/" isExact>
+      Home
+    </NavLink>
+    <NavLink path="/about">About Me</NavLink>
+    <NavLink path="/projects">Projects</NavLink>
+    <NavLink path="/blog">Blog</NavLink>
   </Nav>
 )
 
