@@ -6,7 +6,11 @@ import NavLink from "./NavLink"
 const Nav = styled.nav`
   position: fixed;
   height: 55px;
-  width: 100%;
+  width: ${({
+    theme: {
+      spacing: { m },
+    },
+  }) => `calc(100% - ${m} - ${m})`};
   z-index: 1000;
   display: flex;
   flex-flow: row wrap;
@@ -33,8 +37,8 @@ const RightContainer = styled.div`
   flex: 1;
 `
 
-const NavBar = ({ transparent }) => (
-  <Nav transparent={transparent}>
+const NavBar = () => (
+  <Nav>
     <LeftContainer>
       <NavLink path="/" isExact>
         Home
