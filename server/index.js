@@ -1,10 +1,15 @@
+require("dotenv").config()
+
 const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
 const app = express()
 const mongoose = require("mongoose")
-
-require("dotenv").config()
+const expressSession = require("express-session")({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+})
 
 const api = require("./api")
 
@@ -26,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+app.use(expressSession)
 
 // API routes
 app.use("/api", api)

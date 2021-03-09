@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose")
+const passportLocalMongoose = require("passport-local-mongoose")
 
 const User = new Schema({
   name: {
@@ -11,11 +12,15 @@ const User = new Schema({
       required: true,
     },
   },
-  email: {
+  username: {
     type: String,
     required: true,
   },
   password: {
+    type: String,
+    required: true,
+  },
+  email: {
     type: String,
     required: true,
   },
@@ -24,6 +29,8 @@ const User = new Schema({
     default: false,
   },
 })
+
+User.plugin(passportLocalMongoose)
 
 User.pre("save", function () {})
 
