@@ -28,17 +28,19 @@ app.use(express.static(path.resolve("build")))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
+// Parse application/json
 app.use(bodyParser.json())
+// Session middleware
 app.use(expressSession)
 
 // API routes
 app.use("/api", api)
 
-// Let every other request be handled by React Client
+// Let every other request be handled by the React client
 app.get("*", function (req, res) {
   res.sendFile(path.resolve("build", "index.html"))
 })
+
+// TODO: implement generic error handling
 
 app.listen(process.env.PORT || 8080)
