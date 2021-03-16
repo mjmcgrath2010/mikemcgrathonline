@@ -4,7 +4,8 @@ import styled from "styled-components"
 
 const StyledInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.purple_100};
-  width: 90%;
+  width: calc(100% - 2px);
+  padding: 0;
   margin: 0 auto;
   font-size: ${({ theme, size }) => theme.fontSizes[size] || theme.fontSizes.m};
   border-radius: 4px;
@@ -19,6 +20,7 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.black_100};
+    padding-left: ${({ theme }) => theme.spacing.m};
   }
 `
 

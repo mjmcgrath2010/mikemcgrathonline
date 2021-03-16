@@ -51,12 +51,13 @@ const StyledButton = styled.button`
   ${({ variant }) => VARIANTS[variant]};
 `
 
-const Button = ({ children, className, onClick, fontSize, variant }) => (
+const Button = ({ children, className, onClick, fontSize, variant, type }) => (
   <StyledButton
     className={className}
     onClick={onClick}
     fontSize={fontSize}
     variant={variant}
+    type={type}
   >
     {children}
   </StyledButton>
@@ -65,6 +66,7 @@ const Button = ({ children, className, onClick, fontSize, variant }) => (
 Button.defaultProps = {
   className: "",
   fontSize: "s",
+  type: "button",
   variant: "primary",
 }
 
@@ -85,6 +87,10 @@ Button.propTypes = {
    Determines the buttons font size, options:
    */
   fontSize: PropTypes.oneOf(["s", "m", "l"]),
+  /**
+   Sets HTML `type` attribute, options:
+   */
+  type: PropTypes.oneOf(["button", "submit"]),
   /**
    Specifies which style will be applied, options:
    */

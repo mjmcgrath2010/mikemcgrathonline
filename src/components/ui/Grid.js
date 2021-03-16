@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const Container = styled.div`
-  margin: ${({ theme }) => `0 ${theme.spacing.lg}`};
+  margin: 0 auto;
   padding: 0;
   grid-template-columns: ${({ cols }) => `repeat(${cols}, 1fr);`};
 `
@@ -12,8 +12,8 @@ const Row = styled.div`
   display: grid;
   grid-gap: ${({ theme }) => theme.spacing.sm};
   grid-template-columns: inherit;
-  grid-auto-rows: 84px;
-  padding: ${({ theme }) => `${theme.spacing.m} ${theme.spacing.lg}`};
+  grid-auto-rows: auto;
+  padding: ${({ theme }) => `${theme.spacing.m} 0`};
 
   ${({ theme }) => theme.breakpoints.tablet} {
   }
