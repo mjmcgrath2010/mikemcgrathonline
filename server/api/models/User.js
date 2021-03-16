@@ -29,6 +29,9 @@ User.methods = {
   identifier() {
     return this._id
   },
+  isAdmin() {
+    return this.admin
+  },
 }
 
 module.exports = model("user", User)
