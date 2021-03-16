@@ -5,6 +5,7 @@ import styled, { css } from "styled-components"
 const BaseCss = css`
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
   color: ${({ theme }) => theme.colors.black_300};
+  margin: 0;
   font-weight: ${({ theme }) => theme.fontWeights[500]};
 `
 const p = css`
@@ -20,6 +21,7 @@ const HeadingBaseCss = css`
   font-family: ${({ theme }) => theme.fontFamilies.sans_200};
   color: ${({ theme }) => theme.colors.purple_400};
   font-weight: ${({ theme }) => theme.fontWeights[600]};
+  margin: 0;
 `
 
 const h1 = css`

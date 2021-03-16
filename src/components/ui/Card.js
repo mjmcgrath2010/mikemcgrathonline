@@ -5,18 +5,18 @@ import styled from "styled-components"
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.white_100};
   height: 100%;
-  width: 100%;
+  width: auto;
   overflow: hidden;
   display: block;
   position: relative;
 `
 
 const ContentContainer = styled.div`
-  width: ${({ theme }) =>
-    `calc(100% - ${theme.spacing.m} - ${theme.spacing.m})`};
-  height: ${({ theme }) =>
-    `calc(100% - ${theme.spacing.m} - ${theme.spacing.m})`};
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
   padding: ${({ theme }) => theme.spacing.m};
+  display: block;
 `
 const Card = ({ children, className }) => (
   <Container className={className}>
