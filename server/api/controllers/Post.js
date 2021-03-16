@@ -18,7 +18,7 @@ exports.getAll = (req, res, next) =>
     .catch((e) => next(e))
 
 exports.create = (req, res, next) => {
-  const { title, description, tags, categories, html, json } = req.body
+  const { title, description, tags, categories, html, json, status } = req.body
   const author = req.user.identifier()
 
   const post = new Post({
@@ -29,9 +29,37 @@ exports.create = (req, res, next) => {
     categories,
     html,
     json,
+    status,
   })
+
+  post
+    .save()
+    .then((doc) => res.json(doc))
+    .catch((e) => next(e))
 }
 
-exports.update = (req, res, next) => {}
+exports.update = (req, res, next) => {
+  const { title, description, tags, categories, html, json, status } = req.body
+  const author = req.user.identifier()
+  req.post
+    .overwrite({
+      author,
+      title,
+      description,
+      tags,
+      categories,
+      html,
+      json,
+      status,
+    })
+    .save()
+    .then((doc) => res.json(doc))
+    .catch((e) => next(e))
+}
 
-exports.delete = (req, res, next) => {}
+exports.delete = (req, res, next) => {
+  req.post
+    .delete()
+    .then((doc) => res.json(doc))
+    .catch((e) => next(e))
+}

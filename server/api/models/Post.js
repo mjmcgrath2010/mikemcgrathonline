@@ -1,6 +1,11 @@
 const { Schema, model } = require("mongoose")
 
 const Post = new Schema({
+  status: {
+    type: String,
+    enum: ["draft", "published", "deleted"],
+    default: "draft",
+  },
   author: {
     type: Schema.Types.ObjectId,
     ref: "user",
@@ -35,5 +40,12 @@ const Post = new Schema({
     type: String,
   },
 })
+
+Post.methods = {
+  delete() {
+    this.status = "deleted"
+    return this.save()
+  },
+}
 
 module.exports = model("post", Post)
