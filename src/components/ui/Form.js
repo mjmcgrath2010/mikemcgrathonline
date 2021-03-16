@@ -105,12 +105,14 @@ FormFooter.defaultProps = {
   onCancel: undefined,
   submitText: "Submit",
 }
+
 FormFooter.propTypes = {
   cancelText: PropTypes.string,
   children: PropTypes.node,
   onCancel: PropTypes.func,
   submitText: PropTypes.string,
 }
+
 FormBody.displayName = "Form.Body"
 FormColumn.displayName = "Form.Item"
 FormFooter.displayName = "Form.Footer"
