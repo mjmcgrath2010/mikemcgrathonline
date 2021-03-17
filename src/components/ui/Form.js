@@ -27,14 +27,15 @@ const Column = styled(Grid.Item)``
 
 const FormButton = styled(Button)`
   min-width: 144px;
+  width: 144px;
+  margin: 0 auto;
+  max-width: 300px;
   &:nth-child(2) {
     margin-right: ${({ theme }) => theme.spacing.m};
   }
 `
 
-FormGroup.displayName = "Form.Group"
-
-const Form = ({ children, onSubmit }) => {
+const Form = ({ children, cols, inputs, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit()
@@ -42,57 +43,43 @@ const Form = ({ children, onSubmit }) => {
 
   return (
     <StyledForm method="POST" onSubmit={handleSubmit}>
+      <StyledFormBody cols={cols}>
+        <FormGroup>
+          {inputs.map(
+            ({ name, type, label, initialValue, placeholder, cols = 2 }) => (
+              <Column key={name} cols={cols}>
+                <Input.Group>
+                  {label && <Input.Label>{label}</Input.Label>}
+                  <Input
+                    name={name}
+                    type={type}
+                    initialValue={initialValue}
+                    placeholder={placeholder}
+                    onChange={() => {}}
+                  />
+                </Input.Group>
+              </Column>
+            ),
+          )}
+        </FormGroup>
+      </StyledFormBody>
       {children}
     </StyledForm>
   )
 }
 
 Form.defaultProps = {
+  children: null,
+  cols: 2,
   onSubmit: () => {},
+  inputs: [],
 }
 
 Form.propTypes = {
-  children: PropTypes.node.isRequired,
-  onSubmit: PropTypes.func,
-}
-
-const FormBody = ({ cols, inputs }) => (
-  <StyledFormBody cols={cols}>
-    {inputs.map(
-      ({
-        name,
-        type,
-        label,
-        onChange,
-        initialValue,
-        placeholder,
-        cols = 2,
-      }) => (
-        <Column key={name} cols={cols}>
-          <Input.Group>
-            {label && <Input.Label>{label}</Input.Label>}
-            <Input
-              name={name}
-              type={type}
-              initialValue={initialValue}
-              placeholder={placeholder}
-              onChange={onChange}
-            />
-          </Input.Group>
-        </Column>
-      ),
-    )}
-  </StyledFormBody>
-)
-
-FormBody.defaultProps = {
-  inputs: [],
-  cols: 2,
-}
-
-FormBody.propTypes = {
-  inputs: PropTypes.array,
+  children: PropTypes.node,
   cols: PropTypes.number,
+  inputs: PropTypes.array,
+  onSubmit: PropTypes.func,
 }
 
 const FormColumn = ({ children, cols }) => (
@@ -110,19 +97,21 @@ FormColumn.propTypes = {
 
 const FormFooter = ({ cancelText, children, onCancel, submitText }) => (
   <Footer cols={2}>
-    <Column cols={onCancel ? 1 : 2}>
-      {onCancel && (
-        <FormButton variant="secondary" onClick={onCancel}>
-          {cancelText}
+    <FormGroup>
+      <Column cols={onCancel ? 1 : 2}>
+        {onCancel && (
+          <FormButton variant="secondary" onClick={onCancel}>
+            {cancelText}
+          </FormButton>
+        )}
+      </Column>
+      <Column cols={onCancel ? 1 : 2}>
+        <FormButton variant="primary" type="submit">
+          {submitText}
         </FormButton>
-      )}
-    </Column>
-    <Column cols={onCancel ? 1 : 2}>
-      <FormButton variant="primary" type="submit">
-        {submitText}
-      </FormButton>
-    </Column>
-    <Column cols={2}>{children}</Column>
+      </Column>
+      <Column cols={2}>{children}</Column>
+    </FormGroup>
   </Footer>
 )
 
@@ -140,11 +129,9 @@ FormFooter.propTypes = {
   submitText: PropTypes.string,
 }
 
-FormBody.displayName = "Form.Body"
 FormColumn.displayName = "Form.Item"
 FormFooter.displayName = "Form.Footer"
 
-Form.Body = FormBody
 Form.Group = FormGroup
 Form.Item = FormColumn
 Form.Footer = FormFooter

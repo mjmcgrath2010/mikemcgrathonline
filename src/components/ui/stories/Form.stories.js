@@ -12,22 +12,41 @@ export default {
 const Template = (args) => <Form {...args} />
 
 const FullFormTemplate = (args) => (
-  <Form onSubmit={() => alert("success")}>
-    <Form.Body
-      cols={2}
-      inputs={[
-        {
-          label: "Email",
-          name: "email",
-          type: "text",
-          initialValue: undefined,
-          placeholder: "johndoe@example.com",
-          cols: 2,
-          onChange: () => {},
-        },
-      ]}
+  <Form
+    onSubmit={() => alert("success")}
+    cols={2}
+    inputs={[
+      {
+        label: "First",
+        name: "first",
+        type: "text",
+        initialValue: undefined,
+        placeholder: "John",
+        cols: 1,
+      },
+      {
+        label: "Last",
+        name: "last",
+        type: "text",
+        initialValue: undefined,
+        placeholder: "Doe",
+        cols: 1,
+      },
+      {
+        label: "Email",
+        name: "email",
+        type: "text",
+        initialValue: undefined,
+        placeholder: "johndoe@example.com",
+        cols: 2,
+      },
+    ]}
+  >
+    <Form.Footer
+      submitText="Enter Email"
+      onCancel={() => {}}
+      cancelText="Nevermind"
     />
-    <Form.Footer submitText="Enter Email" />
   </Form>
 )
 
