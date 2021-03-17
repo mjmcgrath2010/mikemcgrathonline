@@ -39,18 +39,14 @@ const Contact = () => {
   }
   return (
     <>
-      <Grid.Row rows={1}>
-        <Grid.Item cols={12}>
-          <Typography variant="h2">Contact</Typography>
-        </Grid.Item>
-      </Grid.Row>
-      <Grid.Row rows={5}>
-        <Grid.Item cols={12}>
-          <Form cols={2} onSubmit={handleSubmit} inputs={FORM_FIELDS}>
-            <Form.Footer submitText="Message Me" />
-          </Form>
-        </Grid.Item>
-      </Grid.Row>
+      <Grid.Item cols={12}>
+        <Typography variant="h2">Contact</Typography>
+      </Grid.Item>
+      <Grid.Item cols={12}>
+        <Form cols={2} onSubmit={handleSubmit} inputs={FORM_FIELDS}>
+          <Form.Footer submitText="Message Me" />
+        </Form>
+      </Grid.Item>
     </>
   )
 }

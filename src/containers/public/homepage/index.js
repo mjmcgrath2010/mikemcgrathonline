@@ -40,11 +40,8 @@ const HomePage = () => {
             <Typography variant="h4">My Name is Mike</Typography>
           </Grid.Item>
         </Grid.Row>
-
-        <Grid.Row rows={6}>
-          <Grid.Item cols={12} mobileCols={12}>
-            <Contact />
-          </Grid.Item>
+        <Grid.Row rows={4}>
+          <Contact />
         </Grid.Row>
       </Grid>
     </PublicCommonLayout>
