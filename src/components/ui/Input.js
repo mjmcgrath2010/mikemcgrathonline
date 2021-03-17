@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
   outline: none;
   color: ${({ theme }) => theme.colors.black_300};
-  padding-left: ${({ theme }) => theme.spacing.m};
+  padding-left: ${({ theme }) => theme.spacing.sm};
 
   &:focus {
     outline: none;
@@ -20,7 +20,6 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.black_100};
-    padding-left: ${({ theme }) => theme.spacing.m};
   }
 `
 
@@ -30,7 +29,7 @@ const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
   width: 90%;
   margin: 0;
-  padding: ${({ theme }) => `${theme.spacing.m} 0`};
+  padding: ${({ theme }) => `0 0 ${theme.spacing.sm}`};
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
 `
 
@@ -46,7 +45,7 @@ const Input = ({ onChange, initialValue, placeholder, type, name, size }) => {
   const [val, setVal] = useState(initialValue)
 
   const handleChange = ({ target: { value, name } }) => {
-    setVal({ [name]: value })
+    setVal(value)
     onChange({ [name]: value })
   }
 
@@ -71,6 +70,7 @@ Input.defaultProps = {
   name: "",
   placeholder: "",
   size: "m",
+  type: "text",
 }
 
 Input.propTypes = {
@@ -79,6 +79,7 @@ Input.propTypes = {
   name: PropTypes.string,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(["s", "m", "l"]),
+  type: PropTypes.oneOf(["email", "text", "password"]),
 }
 
 export default Input
