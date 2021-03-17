@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Button from "./Button"
 import Grid from "./Grid"
+import Input from "./Input"
 
 const StyledForm = styled.form`
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -55,16 +56,42 @@ Form.propTypes = {
   onSubmit: PropTypes.func,
 }
 
-const FormBody = ({ children, cols }) => (
-  <StyledFormBody cols={cols}>{children}</StyledFormBody>
+const FormBody = ({ cols, inputs }) => (
+  <StyledFormBody cols={cols}>
+    {inputs.map(
+      ({
+        name,
+        type,
+        label,
+        onChange,
+        initialValue,
+        placeholder,
+        cols = 2,
+      }) => (
+        <Column key={name} cols={cols}>
+          <Input.Group>
+            {label && <Input.Label>{label}</Input.Label>}
+            <Input
+              name={name}
+              type={type}
+              initialValue={initialValue}
+              placeholder={placeholder}
+              onChange={onChange}
+            />
+          </Input.Group>
+        </Column>
+      ),
+    )}
+  </StyledFormBody>
 )
 
 FormBody.defaultProps = {
+  inputs: [],
   cols: 2,
 }
 
 FormBody.propTypes = {
-  children: PropTypes.node,
+  inputs: PropTypes.array,
   cols: PropTypes.number,
 }
 

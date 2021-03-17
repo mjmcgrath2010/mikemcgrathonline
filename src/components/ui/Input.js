@@ -1,11 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const StyledInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.purple_100};
-  width: calc(100% - 2px);
-  padding: 0;
+  width: ${({ theme }) => `calc(100% - 2px - ${theme.spacing.m})`};
   margin: 0 auto;
   font-size: ${({ theme, size }) => theme.fontSizes[size] || theme.fontSizes.m};
   border-radius: 4px;
@@ -13,6 +12,7 @@ const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
   outline: none;
   color: ${({ theme }) => theme.colors.black_300};
+  padding-left: ${({ theme }) => theme.spacing.m};
 
   &:focus {
     outline: none;
@@ -29,24 +29,35 @@ const StyledLabel = styled.label`
   font-size: ${({ theme, size }) => theme.fontSizes[size] || theme.fontSizes.m};
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
   width: 90%;
-  margin: 0 auto;
-  padding: 0.5em 1em;
+  margin: 0;
+  padding: ${({ theme }) => `${theme.spacing.m} 0`};
   font-family: ${({ theme }) => theme.fontFamilies.sans_100};
 `
 
 const StyledInputGroup = styled.div`
   display: flex;
   flex-flow: column wrap;
+  margin: 0;
+  justify-content: flex-start;
+  padding: 0;
 `
 
-const Input = ({ onChange, placeholder, type, name, size }) => {
+const Input = ({ onChange, initialValue, placeholder, type, name, size }) => {
+  const [val, setVal] = useState(initialValue)
+
+  const handleChange = ({ target: { value, name } }) => {
+    setVal({ [name]: value })
+    onChange({ [name]: value })
+  }
+
   return (
     <StyledInput
-      onChange={onChange}
+      onChange={handleChange}
       name={name}
       placeholder={placeholder}
-      type="text"
+      type={type}
       size={size}
+      value={val}
     />
   )
 }
@@ -56,6 +67,7 @@ Input.Label = StyledLabel
 
 Input.defaultProps = {
   onChange: () => {},
+  initialValue: undefined,
   name: "",
   placeholder: "",
   size: "m",
@@ -63,6 +75,7 @@ Input.defaultProps = {
 
 Input.propTypes = {
   onChange: PropTypes.func,
+  initialValue: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(["s", "m", "l"]),

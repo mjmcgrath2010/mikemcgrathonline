@@ -13,19 +13,20 @@ const Template = (args) => <Form {...args} />
 
 const FullFormTemplate = (args) => (
   <Form onSubmit={() => alert("success")}>
-    <Form.Body cols={2}>
-      <Form.Group>
-        <Form.Item cols={1}>
-          <Input placeholder="First Name" />
-        </Form.Item>
-        <Form.Item cols={1}>
-          <Input placeholder="Last Name" />
-        </Form.Item>
-      </Form.Group>
-      <Form.Item>
-        <Input placeholder="Email" />
-      </Form.Item>
-    </Form.Body>
+    <Form.Body
+      cols={2}
+      inputs={[
+        {
+          label: "Email",
+          name: "email",
+          type: "text",
+          initialValue: undefined,
+          placeholder: "johndoe@example.com",
+          cols: 2,
+          onChange: () => {},
+        },
+      ]}
+    />
     <Form.Footer submitText="Enter Email" />
   </Form>
 )
