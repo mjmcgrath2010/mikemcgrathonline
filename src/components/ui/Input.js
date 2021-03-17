@@ -41,10 +41,18 @@ const StyledInputGroup = styled.div`
   padding: 0;
 `
 
-const Input = ({ onChange, initialValue, placeholder, type, name, size }) => {
+const Input = ({
+  onChange,
+  initialValue,
+  placeholder,
+  type,
+  name,
+  size,
+  required,
+}) => {
   const [val, setVal] = useState(initialValue)
 
-  const handleChange = ({ target: { value, name } }) => {
+  const handleChange = ({ target: { value } }) => {
     setVal(value)
     onChange({ [name]: value })
   }
@@ -57,6 +65,7 @@ const Input = ({ onChange, initialValue, placeholder, type, name, size }) => {
       type={type}
       size={size}
       value={val}
+      required={required}
     />
   )
 }
@@ -66,11 +75,12 @@ Input.Label = StyledLabel
 
 Input.defaultProps = {
   onChange: () => {},
-  initialValue: undefined,
+  initialValue: "",
   name: "",
   placeholder: "",
   size: "m",
   type: "text",
+  required: false,
 }
 
 Input.propTypes = {
@@ -80,6 +90,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(["s", "m", "l"]),
   type: PropTypes.oneOf(["email", "text", "password"]),
+  required: PropTypes.bool,
 }
 
 export default Input

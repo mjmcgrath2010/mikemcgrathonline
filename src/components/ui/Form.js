@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Button from "./Button"
@@ -36,30 +36,45 @@ const FormButton = styled(Button)`
 `
 
 const Form = ({ children, cols, inputs, onSubmit }) => {
+  const [state, setState] = useState({})
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit()
+    onSubmit(state)
   }
 
+  const handleChange = (update) => setState({ ...state, ...update })
+
   return (
-    <StyledForm method="POST" onSubmit={handleSubmit}>
+    <StyledForm method="post" onSubmit={handleSubmit}>
       <StyledFormBody cols={cols}>
         <FormGroup>
           {inputs.map(
-            ({ name, type, label, initialValue, placeholder, cols = 2 }) => (
-              <Column key={name} cols={cols}>
-                <Input.Group>
-                  {label && <Input.Label>{label}</Input.Label>}
-                  <Input
-                    name={name}
-                    type={type}
-                    initialValue={initialValue}
-                    placeholder={placeholder}
-                    onChange={() => {}}
-                  />
-                </Input.Group>
-              </Column>
-            ),
+            ({
+              name,
+              type,
+              label,
+              initialValue,
+              placeholder,
+              cols = 2,
+              required,
+            }) => {
+              return (
+                <Column key={name} cols={cols}>
+                  <Input.Group>
+                    {label && <Input.Label>{label}</Input.Label>}
+                    <Input
+                      name={name}
+                      type={type}
+                      initialValue={initialValue}
+                      placeholder={placeholder}
+                      onChange={handleChange}
+                      required={required}
+                    />
+                  </Input.Group>
+                </Column>
+              )
+            },
           )}
         </FormGroup>
       </StyledFormBody>
@@ -71,7 +86,10 @@ const Form = ({ children, cols, inputs, onSubmit }) => {
 Form.defaultProps = {
   children: null,
   cols: 2,
-  onSubmit: () => {},
+  onCancel: () => {},
+  onSubmit: (state) => {
+    console.log(state)
+  },
   inputs: [],
 }
 

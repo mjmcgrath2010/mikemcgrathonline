@@ -66,6 +66,7 @@ const Button = ({ children, className, onClick, fontSize, variant, type }) => (
 Button.defaultProps = {
   className: "",
   fontSize: "s",
+  onClick: () => {},
   type: "button",
   variant: "primary",
 }
@@ -82,7 +83,7 @@ Button.propTypes = {
   /**
    onClick handler
    */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /**
    Determines the buttons font size, options:
    */
