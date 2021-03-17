@@ -1,7 +1,6 @@
 import React from "react"
 
 import Form from "../Form"
-import Input from "../Input"
 
 export default {
   title: "Form",
