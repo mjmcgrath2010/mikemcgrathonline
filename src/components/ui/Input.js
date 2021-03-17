@@ -89,7 +89,7 @@ Input.propTypes = {
   name: PropTypes.string,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(["s", "m", "l"]),
-  type: PropTypes.oneOf(["email", "text", "password"]),
+  type: PropTypes.oneOf(["email", "text", "password", "textarea"]),
   required: PropTypes.bool,
 }
 

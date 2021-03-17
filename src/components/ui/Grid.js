@@ -13,7 +13,7 @@ const Row = styled.div`
   grid-gap: ${({ theme }) => theme.spacing.sm};
   grid-template-columns: inherit;
   grid-auto-rows: auto;
-  padding: ${({ theme }) => `${theme.spacing.m} 0`};
+  padding: ${({ theme }) => `${theme.spacing.m}`};
 
   ${({ theme }) => theme.breakpoints.tablet} {
   }

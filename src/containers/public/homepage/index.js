@@ -8,6 +8,7 @@ import AnimatedDownIcon from "./AnimatedDownIcon"
 import PublicCommonLayout from "../../../layouts/public/Common"
 import Grid from "../../../components/ui/Grid"
 import Typography from "../../../components/ui/Typography"
+import Contact from "./Contact"
 
 const Container = styled.div`
   width: 100%;
@@ -37,6 +38,12 @@ const HomePage = () => {
           </Grid.Item>
           <Grid.Item cols={8} mobileCols={12}>
             <Typography variant="h4">My Name is Mike</Typography>
+          </Grid.Item>
+        </Grid.Row>
+
+        <Grid.Row rows={6}>
+          <Grid.Item cols={12} mobileCols={12}>
+            <Contact />
           </Grid.Item>
         </Grid.Row>
       </Grid>
