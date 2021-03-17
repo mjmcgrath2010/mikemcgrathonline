@@ -42,6 +42,8 @@ const Grid = ({ children, className, cols }) => (
 Grid.Item = Item
 Grid.Row = Row
 
+const MyChange = "Test GitHub PR"
+
 Grid.Item.defaultProps = {
   cols: 1,
   mobileCols: "inherit",
