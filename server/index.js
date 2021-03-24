@@ -1,5 +1,4 @@
 require("dotenv").config()
-
 const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
@@ -11,6 +10,8 @@ const expressSession = require("express-session")({
   saveUninitialized: false,
 })
 
+const { ApolloServer, gql } = require("apollo-server-express")
+
 const api = require("./api")
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -19,6 +20,22 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 
 const db = mongoose.connection
+
+// Construct a schema, using GraphQL schema language
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`
+
+// Provide resolver functions for your schema fields
+const resolvers = {
+  Query: {
+    hello: () => "Hello world!",
+  },
+}
+
+const server = new ApolloServer({ typeDefs, resolvers })
 
 db.on("error", console.error.bind(console, "connection error:"))
 
@@ -32,6 +49,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // Session middleware
 app.use(expressSession)
+
+server.applyMiddleware({ app, path: "/graphql" })
 
 // API routes
 app.use("/api", api)
