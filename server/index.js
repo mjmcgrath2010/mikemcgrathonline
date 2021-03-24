@@ -9,7 +9,6 @@ const expressSession = require("express-session")({
   resave: false,
   saveUninitialized: false,
 })
-
 const { ApolloServer, gql } = require("apollo-server-express")
 
 const api = require("./api")
