@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import { ThemeProvider } from "styled-components"
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"
 
 import App from "./containers/App"
 import reportWebVitals from "./reportWebVitals"
@@ -9,15 +10,22 @@ import store from "./store"
 import theme from "./theme"
 import GlobalStyle from "./theme/globalStyles"
 
+const client = new ApolloClient({
+  uri: "/graphql",
+  cache: new InMemoryCache(),
+})
+
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <React.StrictMode>
-        <GlobalStyle />
-        <App />
-      </React.StrictMode>
-    </ThemeProvider>
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <React.StrictMode>
+          <GlobalStyle />
+          <App />
+        </React.StrictMode>
+      </ThemeProvider>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById("root"),
 )
 
